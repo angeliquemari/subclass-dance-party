@@ -12,6 +12,14 @@ RainbowDancer.prototype.step = function() {
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
 
-
-  //this.$node.pickRandomColor();
+  var r = Math.floor(Math.random() * 255);
+  var g = Math.floor(Math.random() * 255);
+  var b = Math.floor(Math.random() * 255);
+  var changeColor = function(r, g, b) {
+    var rgbColor = 'rgb(' + [r, g, b].join(',') + ')';
+    this.css('border', '10px solid ' + rgbColor);
+    this.changeColor.called = true; // for test
+  };
+  this.$node.changeColor = changeColor; // for test
+  this.$node.changeColor(r, g, b);
 };

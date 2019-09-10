@@ -12,11 +12,9 @@ describe('rainbowDancer', function() {
     expect(rainbowDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  xit('should have a step function that makes its node change color', function() {
-    // sinon.spy(rainbowDancer.$node, 'toggle');
-    // rainbowDancer.step();
-
-    // expect(rainbowDancer.$node.pickRandomColor.called).to.be.true;
+  it('should have a step function that makes its node change color', function() {
+    rainbowDancer.step();
+    expect(rainbowDancer.$node.changeColor.called).to.equal(true);
   });
 
   describe('dance', function() {

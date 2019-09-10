@@ -12,11 +12,10 @@ describe('squareDancer', function() {
     expect(squareDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  xit('should have a step function that makes its node change location in a square pattern', function() {
-    // sinon.spy(squareDancer.$node, 'toggle');
-    // squareDancer.step();
-
-    // expect(squareDancer.$node.pickRandomColor.called).to.be.true;
+  it('should have a step function that makes its node change location in a square pattern', function() {
+    sinon.spy(squareDancer.$node, 'animate');
+    squareDancer.step();
+    expect(squareDancer.$node.animate.called).to.be.true;
   });
 
   describe('dance', function() {

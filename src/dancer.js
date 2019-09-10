@@ -25,3 +25,8 @@ Dancer.prototype.setPosition = function(top, left) {
   };
   this.$node.css(styleSettings);
 };
+
+Dancer.prototype.setColor = function(r, g, b) {
+  var rgbColor = 'rgb(' + [r, g, b].join(',') + ')';
+  this.css('border', '10px solid ' + rgbColor);
+};

@@ -12,6 +12,15 @@ SquareDancer.prototype.step = function() {
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
 
+  let left = this.left + 30;
+  let top = this.top + 30;
 
+  this.$node.setColor = this.setColor;
+  this.$node.setColor(103, 208, 159);
+
+  this.$node.animate({left: left + 'px'});
+  this.$node.animate({top: top + 'px'});
+  this.$node.animate({left: this.left + 'px'});
+  this.$node.animate({top: this.top + 'px'});
   //this.$node.rotateClockwise90AndJump5Px();
 };

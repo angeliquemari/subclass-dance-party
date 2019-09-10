@@ -16,19 +16,6 @@ RainbowDancer.prototype.step = function() {
   var g = Math.floor(Math.random() * 255);
   var b = Math.floor(Math.random() * 255);
 
-  // var changeColor = function(r, g, b) {
-  //   var rgbColor = 'rgb(' + [r, g, b].join(',') + ')';
-  //   this.css('border', '10px solid ' + rgbColor);
-  // };
-
-  // this.$node.changeColor = changeColor; // for test
-  // this.$node.changeColor(r, g, b);
-
-  var changeColor = function(r, g, b) {
-    var rgbColor = 'rgb(' + [r, g, b].join(',') + ')';
-    this.css('border', '10px solid ' + rgbColor);
-  };
-
   this.$node.setColor = this.setColor;
   this.$node.setColor(r, g, b);
 };

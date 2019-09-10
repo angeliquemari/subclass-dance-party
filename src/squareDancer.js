@@ -16,11 +16,11 @@ SquareDancer.prototype.step = function() {
   let top = this.top + 30;
 
   this.$node.setColor = this.setColor;
-  this.$node.setColor(103, 208, 159);
+  this.$node.setColor(0, 255, 0);
 
-  this.$node.animate({left: left + 'px'});
-  this.$node.animate({top: top + 'px'});
-  this.$node.animate({left: this.left + 'px'});
-  this.$node.animate({top: this.top + 'px'});
-  //this.$node.rotateClockwise90AndJump5Px();
+  this.$node.animate({position: 'relative', left: this.left + 30 + 'px'});
+  this.$node.animate({position: 'relative', top: this.top + 30 + 'px'});
+  this.$node.animate({position: 'relative', left: this.left + 'px'});
+  this.$node.animate({position: 'relative', top: this.top + 'px'});
+
 };

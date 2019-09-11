@@ -1,5 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
+  var counter = 0;
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -21,12 +22,13 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
-
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      Math.random() * 1000,
+      counter
     );
+    counter++;
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
@@ -39,14 +41,31 @@ $(document).ready(function() {
     }
   });
 
-  $('.interactButton').on('click', function(event) {
+  $('body').on('mouseenter', '.dancer', function(){
+    var selectedDancer = window.dancers[this.id];
+    selectedDancer.interact();
+    if(window.dancers.length > 1){
+      var nearestDancer = getNearestDancer(this.id);
+      nearestDancer.interact();
+    }
+  });
+
+  $('body').on('mouseleave', '.dancer', function(){
+    var selectedDancer = window.dancers[this.id];
+    selectedDancer.unInteract();
+    if(window.dancers.length > 1){
+      var nearestDancer = getNearestDancer(this.id);
+      nearestDancer.unInteract();
+    }
+  });
+
+  var getNearestDancer = function (id) {
     var minDistance = Infinity;
     var nearestDancer;
     var dancers = window.dancers;
-    var selectedDancerIndex = 0; // change to input later
-    var selectedDancer = dancers[selectedDancerIndex];
+    var selectedDancer = window.dancers[id];
     for (let i = 0; i < dancers.length; i++) {
-      if (i !== selectedDancerIndex) {
+      if (i !== Number(id)) {
         let distance = Math.sqrt((dancers[i].left - selectedDancer.left)**2 + (dancers[i].top - selectedDancer.top)**2);
         if (distance < minDistance) {
           minDistance = distance;
@@ -54,9 +73,7 @@ $(document).ready(function() {
         }
       }
     }
-    nearestDancer.interact();
-    selectedDancer.interact();
-  });
+    return nearestDancer;
+  }
 
 });
-

@@ -32,3 +32,7 @@ Dancer.prototype.setColor = function(r, g, b) {
   var rgbColor = 'rgb(' + [r, g, b].join(',') + ')';
   this.css('border', '10px solid ' + rgbColor);
 };
+
+Dancer.prototype.interact = function() {
+  this.$node.css('transform', 'scale(2)');
+}

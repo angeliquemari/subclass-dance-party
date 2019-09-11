@@ -38,5 +38,25 @@ $(document).ready(function() {
       left += 50;
     }
   });
+
+  $('.interactButton').on('click', function(event) {
+    var minDistance = Infinity;
+    var nearestDancer;
+    var dancers = window.dancers;
+    var selectedDancerIndex = 0; // change to input later
+    var selectedDancer = dancers[selectedDancerIndex];
+    for (let i = 0; i < dancers.length; i++) {
+      if (i !== selectedDancerIndex) {
+        let distance = Math.sqrt((dancers[i].left - selectedDancer.left)**2 + (dancers[i].top - selectedDancer.top)**2);
+        if (distance < minDistance) {
+          minDistance = distance;
+          nearestDancer = dancers[i];
+        }
+      }
+    }
+    nearestDancer.interact();
+    selectedDancer.interact();
+  });
+
 });
 

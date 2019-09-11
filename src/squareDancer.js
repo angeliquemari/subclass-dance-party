@@ -1,5 +1,6 @@
 var SquareDancer = function(top, left, timeBetweenSteps) {
   Dancer.apply(this, arguments);
+  this.$node.append('<img src="cowboy.png" width="81" height="98"/>');
 };
 
 SquareDancer.prototype = Object.create(Dancer.prototype);
@@ -16,7 +17,7 @@ SquareDancer.prototype.step = function() {
   let top = this.top + 30;
 
   this.$node.setColor = this.setColor;
-  this.$node.setColor(0, 255, 0);
+  // this.$node.setColor(0, 255, 0);
 
   this.$node.animate({position: 'relative', left: this.left + 30 + 'px'});
   this.$node.animate({position: 'relative', top: this.top + 30 + 'px'});

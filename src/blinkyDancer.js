@@ -1,5 +1,7 @@
 var BlinkyDancer = function(top, left, timeBetweenSteps) {
   Dancer.apply(this, arguments);
+  this.$node.append('<img src="eyes.png" width="84" height="32"/>');
+  // this.$node.append('<img src="unicorn.png" scale(0.1)/>');
 };
 
 BlinkyDancer.prototype = Object.create(Dancer.prototype);

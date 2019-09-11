@@ -1,5 +1,6 @@
 var RainbowDancer = function(top, left, timeBetweenSteps) {
   Dancer.apply(this, arguments);
+  this.$node.append('<img src="unicorn.gif" width="80" height="80"/>');
 };
 
 RainbowDancer.prototype = Object.create(Dancer.prototype);
@@ -12,10 +13,10 @@ RainbowDancer.prototype.step = function() {
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
 
-  var r = Math.floor(Math.random() * 255);
-  var g = Math.floor(Math.random() * 255);
-  var b = Math.floor(Math.random() * 255);
+  // var r = Math.floor(Math.random() * 255);
+  // var g = Math.floor(Math.random() * 255);
+  // var b = Math.floor(Math.random() * 255);
 
-  this.$node.setColor = this.setColor;
-  this.$node.setColor(r, g, b);
+  // this.$node.setColor = this.setColor;
+  // this.$node.setColor(r, g, b);
 };

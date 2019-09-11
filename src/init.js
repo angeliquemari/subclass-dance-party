@@ -37,7 +37,7 @@ $(document).ready(function() {
     var left = 10;
     for (let i = 0; i < window.dancers.length; i++) {
       window.dancers[i].setPosition(280, left);
-      left += 50;
+      left += 100;
     }
   });
 
